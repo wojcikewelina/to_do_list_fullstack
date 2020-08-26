@@ -7,38 +7,30 @@ export default class Sheet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiData: []
+      apiData: [],
+      ststus: this.props.doStatus
     };
   }
 
   componentDidMount() {
-    getApi()
-      .then(result => {
-        this.setState({
-          apiData: result
-        });
-      })
+    getApi().then(result => {
+      this.setState({
+        apiData: result
+      });
+    });
   }
   render() {
     const { mainTitle, doStatus } = this.props;
     const allTaskElements = this.state.apiData.map((element, i) => {
-
-      if(element.status=={doStatus}){
-
-      return (
-        <div>
-          <Task title={element.title} />
-        </div>
-      );
+      if (element.status == doStatus) {
+        return <Task title={element.title} />;
       }
     });
 
-
     return (
-
-
       <div>
-        {allTaskElements}
+        <h3>{mainTitle}</h3>
+        <ul>{allTaskElements}</ul>
       </div>
     );
   }
