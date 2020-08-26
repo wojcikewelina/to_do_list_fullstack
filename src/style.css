@@ -1,3 +1,19 @@
-h1, p {
+body {
   font-family: Lato;
+  background-color: #FFE7FF
+}
+
+.page-content{
+  display:flex;
+  flex-direction: column;
+
+}
+.all-sheets{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#pageTitle{
+text-align: center;
 }

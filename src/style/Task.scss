@@ -1,14 +1,37 @@
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
 
+    p {
+        margin-right: 1rem;
+    }
+    .task-btn-container {
+        min-width: 80px;
 
-li{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin:0;
+        button {
+            margin: 0.1rem;
+            height: 80%;
+            box-shadow: inset 0px 1px 0px 0px #fbafe3;
+            background: linear-gradient(to bottom, #ff5bb0 5%, #ef027d 100%);
+            background-color: #ff5bb0;
+            border-radius: 6px;
+            border: 1px solid #ee1eb5;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            padding-bottom: 1px;
+            text-shadow: 0px 1px 0px #c70067;
 
-
-  button{
-    margin: 0.1rem;
-    height: 80%;
-  }
+        }
+       button:hover {
+           background: linear-gradient(to bottom, #ef027d 5%, #ff5bb0 100%);
+           background-color: #ef027d;
+       }
+       button:active {
+           position: relative;
+           top: 1px;
+       }
+    }
 }
