@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.10"
   },
   "scripts": {
     "start": "react-scripts start",

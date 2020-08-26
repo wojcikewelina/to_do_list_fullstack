@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../style/Task.scss";
 
 export default class Task extends Component {
 constructor(props) {
