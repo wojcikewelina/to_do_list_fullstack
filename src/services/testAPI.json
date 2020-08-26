@@ -1,0 +1,5 @@
+[
+    { "id": "1", "title": "Nauczyć się js", "status": "done" },
+    { "id": "2", "title": "Nauczyć się javy", "status": "to do" },
+    { "id": "3", "title": "Zrobić pranie", "status": "in progress" }
+ ]
