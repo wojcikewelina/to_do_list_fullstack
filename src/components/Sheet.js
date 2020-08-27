@@ -9,7 +9,8 @@ export default class Sheet extends Component {
     super(props);
     this.state = {
       apiData: [],
-      ststus: this.props.doStatus
+      ststus: this.props.doStatus,
+      addInputValue: ""
     };
   }
 
@@ -26,6 +27,35 @@ export default class Sheet extends Component {
     alert("edytowanko");
   };
 
+  addNewTask = () => {
+
+     fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify({
+        superhero: inputSuperhero.value,
+        publisher: inputPublisher.value,
+        firstAppearance: inputfirstApperance.value,
+        characters: inputCharacters.value,
+        url: inputURL.value
+      })
+    })
+      .then(clearInput())
+      .then(resp => {
+        if (resp.ok) {
+          return resp.json();
+        } else {
+          Promise.reject("http code: ", resp.status);
+        }
+        console.log("response: ", resp);
+      })
+      .then(data => console.log("dane od serwera", data))
+      .catch(err => console.warn("nie działa", err))
+      .then(() => location.reload());
+  };
+
   render() {
     const { mainTitle, doStatus, editOnClick } = this.props;
     const allTaskElements = this.state.apiData.map((element, i) => {
@@ -37,7 +67,7 @@ export default class Sheet extends Component {
             title={element.superhero}
             publisher={element.publisher}
             editOnClick={this.editOnClick}
-            key={element.id+"num"}
+            key={element.id + "num"}
           />
         );
       }
@@ -47,7 +77,14 @@ export default class Sheet extends Component {
       <div className="sheet-box">
         <h3>{mainTitle}</h3>
         <ul>{allTaskElements}</ul>
-        <button>Add new element</button>
+
+<span>
+          <input
+            type="text"
+            value={this.state.addInputValue}
+            placeholder="Wprowadź nazwę zadania"
+          />
+        <button onClick={this.addNewTask}>Add new element</button></span>
       </div>
     );
   }
