@@ -10,8 +10,8 @@ export default class Task extends Component {
     this.state = {
       inputValue: this.props.title,
       id: this.props.id,
-      showBtn: false
-
+      showBtn: false,
+      showLi: true
     };
   }
 
@@ -23,8 +23,7 @@ export default class Task extends Component {
   };
 
   handleSubmit = event => {
-
- this.setState({   
+    this.setState({
       showBtn: false
     });
 
@@ -51,26 +50,37 @@ export default class Task extends Component {
       console.log("response: ", resp);
     });
   };
+
+  removeOnClick = event => {
+    fetch(API_HEROES_URL + "/" + this.state.id, {
+      method: "DELETE"
+    });
+    this.setState({
+      showLi: false
+    });
+  };
   render() {
-    const { title, removeOnClick, editOnClick, id, publisher } = this.props;
+    const { title, editOnClick, id, publisher } = this.props;
 
     return (
-      <li>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.inputValue}
-            onChange={this.handleChange}
-          />
-          {this.state.showBtn?
-          <button >Click to edit</button>:null
-          }
-        </form>
+      <div>
+        {this.state.showLi ? (
+          <li>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                value={this.state.inputValue}
+                onChange={this.handleChange}
+              />
+              {this.state.showBtn ? <button>Click to edit</button> : null}
+            </form>
 
-        <span className="task-btn-container">
-          <button onClick={removeOnClick}>X</button>
-        </span>
-      </li>
+            <span className="task-btn-container">
+              <button onClick={this.removeOnClick}>X</button>
+            </span>
+          </li>
+        ) : null}
+      </div>
     );
   }
 }

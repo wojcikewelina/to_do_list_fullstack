@@ -25,12 +25,9 @@ export default class Sheet extends Component {
   editOnClick = event => {
     alert("edytowanko");
   };
-  removeOnClick = event => {
-    alert("kasowanko");
-  };
 
   render() {
-    const { mainTitle, doStatus, editOnClick, removeOnClick } = this.props;
+    const { mainTitle, doStatus, editOnClick } = this.props;
     const allTaskElements = this.state.apiData.map((element, i) => {
       if (element.publisher == doStatus) {
         // element.gender należy zmienić na element.status, doStatus też zminić
@@ -40,7 +37,7 @@ export default class Sheet extends Component {
             title={element.superhero}
             publisher={element.publisher}
             editOnClick={this.editOnClick}
-            removeOnClick={this.removeOnClick}
+            key={element.id+"num"}
           />
         );
       }
@@ -50,6 +47,7 @@ export default class Sheet extends Component {
       <div className="sheet-box">
         <h3>{mainTitle}</h3>
         <ul>{allTaskElements}</ul>
+        <button>Add new element</button>
       </div>
     );
   }
