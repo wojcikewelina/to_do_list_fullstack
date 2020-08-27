@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../style/Sheet.scss";
 
-import { getApi } from "../services/getJSON";
+import { getAllTasksApi } from "../services/getJSON";
 import Task from "./Task";
 
 export default class Sheet extends Component {
@@ -14,10 +14,11 @@ export default class Sheet extends Component {
   }
 
   componentDidMount() {
-    getApi().then(result => {
+    getAllTasksApi().then(result => {
       this.setState({
         apiData: result
       });
+      console.log(this.state.apiData);
     });
   }
 
@@ -31,10 +32,13 @@ export default class Sheet extends Component {
   render() {
     const { mainTitle, doStatus, editOnClick, removeOnClick } = this.props;
     const allTaskElements = this.state.apiData.map((element, i) => {
-      if (element.status == doStatus) {
+      if (element.publisher == doStatus) {
+        // element.gender należy zmienić na element.status, doStatus też zminić
         return (
           <Task
-            title={element.title}
+            id={element.id}
+            title={element.superhero}
+            publisher={element.publisher}
             editOnClick={this.editOnClick}
             removeOnClick={this.removeOnClick}
           />

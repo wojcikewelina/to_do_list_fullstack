@@ -1,10 +1,11 @@
-let data = require("./testAPI.json");
 
-export function getApi() {
-  const promise = new Promise((resolve, rejected) => {
-    resolve(data);
-    console.log(data);
-  });
+const API_PEOPLE_URL = "https://us-central1-itfighters-hero.cloudfunctions.net/api/hero";
 
-  return promise;
+export function getAllTasksApi() {
+  return fetch(API_PEOPLE_URL).then(response => {
+    return response.json();
+  })
 }
+
+
+
