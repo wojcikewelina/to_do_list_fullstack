@@ -4,13 +4,16 @@ import "../style/Sheet.scss";
 import { getAllTasksApi } from "../services/getJSON";
 import Task from "./Task";
 
+const API_HEROES_URL =
+  "https://us-central1-itfighters-hero.cloudfunctions.net/api/hero";
+
 export default class Sheet extends Component {
   constructor(props) {
     super(props);
     this.state = {
       apiData: [],
       ststus: this.props.doStatus,
-      addInputValue: ""
+      onInputChange: ""
     };
   }
 
@@ -23,26 +26,23 @@ export default class Sheet extends Component {
     });
   }
 
-  editOnClick = event => {
-    alert("edytowanko");
-  };
+  addOnSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.onInputChange);
 
-  addNewTask = () => {
-
-     fetch(API_URL, {
+    fetch(API_HEROES_URL, {
       method: "POST",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       },
       body: JSON.stringify({
-        superhero: inputSuperhero.value,
-        publisher: inputPublisher.value,
-        firstAppearance: inputfirstApperance.value,
-        characters: inputCharacters.value,
-        url: inputURL.value
+        superhero: this.state.onInputChange,
+        publisher: this.props.doStatus,
+        firstAppearance: "",
+        characters: "",
+        url: ""
       })
     })
-      .then(clearInput())
       .then(resp => {
         if (resp.ok) {
           return resp.json();
@@ -54,6 +54,12 @@ export default class Sheet extends Component {
       .then(data => console.log("dane od serwera", data))
       .catch(err => console.warn("nie działa", err))
       .then(() => location.reload());
+  };
+
+  onInputChange = event => {
+    this.setState({
+      onInputChange: event.target.value
+    });
   };
 
   render() {
@@ -78,13 +84,16 @@ export default class Sheet extends Component {
         <h3>{mainTitle}</h3>
         <ul>{allTaskElements}</ul>
 
-<span>
-          <input
-            type="text"
-            value={this.state.addInputValue}
-            placeholder="Wprowadź nazwę zadania"
-          />
-        <button onClick={this.addNewTask}>Add new element</button></span>
+        <span>
+          <form className="add-task-part" onSubmit={this.addOnSubmit}>
+            <input
+              type="text"
+              placeholder="Wprowadź nazwę"
+              onChange={this.onInputChange}
+            />
+            <button>Add new task</button>
+          </form>
+        </span>
       </div>
     );
   }
