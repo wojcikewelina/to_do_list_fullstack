@@ -1,3 +1,11 @@
-# react-xfqzl9
+# App name:
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-xfqzl9)
+To do list
+
+# Description
+
+App created with React, styled with SCSS and CSS. App created during ITFighters programming course. Prepared to connect with dedicated BackEnd. Current API is only for testing.  
+
+# Run App
+
+https://to-do-react.stackblitz.io/
