@@ -1,33 +1,40 @@
 body {
-  font-family: Lato;
+    font-family: Lato;
 }
 
-.page-content{
-  display:flex;
-  flex-direction: column;
-
+.page-content {
+    display: flex;
+    flex-direction: column;
 }
-.all-sheets{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
+.all-sheets {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-#pageTitle{
-text-align: center;
+#pageTitle {
+    text-align: center;
 }
 
 button {
-  margin: 0.1rem;
-  box-shadow: inset 0px 1px 0px 0px #b0cbf0;
-  background: linear-gradient(to bottom, #5bb5ff 5%, #496ac2 100%);
-  background-color: #7870c5;
-  border-radius: 6px;
-  border: 1px solid #1a7dee;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  padding-bottom: 1px;
-  text-shadow: 0px 1px 0px #2b00c7;
+    box-shadow: inset 0px -3px 7px 0px #29bbff;
+    background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color: #2dabf9;
+    border-radius: 3px;
+    border: 1px solid #1a3b66;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000;
+
+    text-decoration: none;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #02d3ef 5%, #737cfa 100%);
+    background-color: #6ccbf7;
+}
+button:active {
+    position: relative;
+    top: 1px;
 }

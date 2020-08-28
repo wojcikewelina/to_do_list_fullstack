@@ -1,29 +1,49 @@
-.sheet-box{
-  width: 30%;
-  min-width: 270px;
-  display: flex;
-  margin: 10px;
+.sheet-box {
+  position: relative;
+    width: 30%;
+    min-width: 330px;
+    display: flex;
+    margin: 10px;
 
-  flex-direction: column;
-  align-items: center; 
+    flex-direction: column;
+    align-items: center;
 
-  background-color: #15b3fc;
+    background-color: #15b3fc;
 
-h3{
-  line-height: 1.3;
-letter-spacing: 0.25em;
+    h3 {
+        line-height: 1.3;
+        letter-spacing: 0.25em;
+    }
+    ul {
+        padding-left: 0;
+        width: 80%;
+    }
+
+    span {
+        
+        form {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }
-  ul{
- padding-left: 0;
- width: 80%;
-  }
+
+.emptyDiv{
+  height:4rem;
 }
 
-.add-task-part{
-  margin: 10px;
+.add-task-part {
+  position:absolute;
+  bottom:0;
+    width: 80%;
+    margin: 10px;
 
-input{
-  border: none;
-}
+    height: 2rem;
 
+    input {
+        border: none;
+        border-radius: 3px;
+        margin-right: 5px;
+        width: 60%;
+    }
 }

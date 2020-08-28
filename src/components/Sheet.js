@@ -83,12 +83,12 @@ export default class Sheet extends Component {
       <div className="sheet-box">
         <h3>{mainTitle}</h3>
         <ul>{allTaskElements}</ul>
-
-        <span>
-          <form className="add-task-part" onSubmit={this.addOnSubmit}>
+        <div className="emptyDiv" />
+        <span className="add-task-part">
+          <form onSubmit={this.addOnSubmit}>
             <input
               type="text"
-              placeholder="Wprowadź nazwę"
+              placeholder=" Wprowadź nazwę"
               onChange={this.onInputChange}
             />
             <button>Add new task</button>

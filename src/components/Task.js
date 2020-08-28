@@ -76,7 +76,7 @@ export default class Task extends Component {
             </form>
 
             <span className="task-btn-container">
-              <button onClick={this.removeOnClick}>X</button>
+              <button onClick={this.removeOnClick}>x</button>
             </span>
           </li>
         ) : null}

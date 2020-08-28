@@ -7,6 +7,7 @@ li {
   input{
 border: none;
 background: none;
+letter-spacing: 0.1rem;
   }
 
     p {
@@ -15,14 +16,7 @@ background: none;
     .task-btn-container {
         min-width: 25px;
 
-       button:hover {
-           background: linear-gradient(to bottom, #02d3ef 5%, #737cfa 100%);
-           background-color: #6ccbf7;
-       }
-       button:active {
-           position: relative;
-           top: 1px;
-       }
+      
     }
         
 }
